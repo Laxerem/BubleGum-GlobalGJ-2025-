@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cx22spw71ei4x"]
+[gd_scene load_steps=9 format=4 uid="uid://cx22spw71ei4x"]
 
 [ext_resource type="Texture2D" uid="uid://cbpwrfgogkxr1" path="res://assets/Map/stringstar fields/background_0.png" id="1_2n61h"]
 [ext_resource type="Texture2D" uid="uid://djsjm6dc3ie3x" path="res://assets/Map/stringstar fields/background_1.png" id="2_8q3pe"]
@@ -78,6 +78,21 @@ texture = ExtResource("3_4dnh5")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_s0dvx")
 
+[sub_resource type="GDScript" id="GDScript_3bwdm"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	if $\"../../Gum/Player\" != null:
+		text = \"HP: \" + str($\"../../Gum/Player\".health)
+"
+
 [node name="Локация 1" type="Node2D"]
 
 [node name="Локация 1" type="ParallaxBackground" parent="."]
@@ -126,3 +141,4 @@ offset_right = 129.0
 offset_bottom = 58.0
 theme_override_font_sizes/font_size = 20
 text = "HP"
+script = SubResource("GDScript_3bwdm")

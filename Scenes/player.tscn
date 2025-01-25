@@ -1,9 +1,11 @@
-[gd_scene load_steps=49 format=3 uid="uid://bduci70qj8hhr"]
+[gd_scene load_steps=63 format=3 uid="uid://bduci70qj8hhr"]
 
 [ext_resource type="Texture2D" uid="uid://bfqj50h4hrutr" path="res://assets/Player/Buble.png" id="1_6xr0q"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_232fs"]
 [ext_resource type="Texture2D" uid="uid://cllf7w3q7oo1o" path="res://assets/Player/стрельба.png" id="2_h44qu"]
 [ext_resource type="Texture2D" uid="uid://h73rtdkck57o" path="res://assets/Player/перс бег.png" id="3_53h3h"]
+[ext_resource type="Texture2D" uid="uid://b4pfaqgme2c3p" path="res://assets/Player/смерть перс.png" id="3_arhvh"]
+[ext_resource type="Texture2D" uid="uid://u03u7kf4edii" path="res://assets/Player/получ урона.png" id="3_etkpv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bvtk"]
 radius = 22.0
@@ -40,6 +42,54 @@ region = Rect2(128, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lmua2"]
 atlas = ExtResource("2_h44qu")
 region = Rect2(192, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yewxp"]
+atlas = ExtResource("3_etkpv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kiwp"]
+atlas = ExtResource("3_etkpv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axcqs"]
+atlas = ExtResource("3_etkpv")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvrby"]
+atlas = ExtResource("3_etkpv")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oh684"]
+atlas = ExtResource("3_etkpv")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvp6e"]
+atlas = ExtResource("3_arhvh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3owj"]
+atlas = ExtResource("3_arhvh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7gqi"]
+atlas = ExtResource("3_arhvh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhxnc"]
+atlas = ExtResource("3_arhvh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojmxr"]
+atlas = ExtResource("3_arhvh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6tqp"]
+atlas = ExtResource("3_arhvh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u526m"]
+atlas = ExtResource("3_arhvh")
+region = Rect2(384, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ncyp"]
 atlas = ExtResource("1_6xr0q")
@@ -204,9 +254,55 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lmua2")
 }],
-"loop": true,
+"loop": false,
 "name": &"Atack",
-"speed": 5.0
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yewxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kiwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axcqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvrby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oh684")
+}],
+"loop": false,
+"name": &"Damage",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvp6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3owj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7gqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhxnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojmxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6tqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u526m")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -332,6 +428,7 @@ shape = SubResource("CapsuleShape2D_6bvtk")
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_boh36")
 animation = &"Atack"
+autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(-441.482, -2.02145)

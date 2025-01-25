@@ -5,17 +5,16 @@ var speed = 100  # Скорость движения моба
 
 @onready var anim = $AnimatedSprite2D  # Ссылка на AnimatedSprite2D для анимации
 @onready var head = $Death/CollisionShape2D
-
-var health = 100
-var alive = true
+@onready var player = $"../../Gum/Player"  # Ссылка на игрока (путь может отличаться)
+@onready var alive = true
 
 # Called every physics frame
 func _physics_process(delta: float) -> void:
-	var player = $"../../Gum/Player"  # Ссылка на игрока (путь может отличаться)
-	var direction = (player.position - self.position).normalized()  # Направление к игроку
-	
 	# Если моб не преследует игрока, то он остаётся в состоянии Idle
 	if alive == true:
+		if player == null:
+			return
+		var direction = (player.position - self.position).normalized()  # Направление к игроку
 		if chase:
 			anim.play("Idle")  # Запускаем анимацию бега
 			velocity.x = direction.x * speed  # Горизонтальное движение
