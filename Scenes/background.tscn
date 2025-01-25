@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dkg2s5n36lian"]
+
+[ext_resource type="Script" path="res://Scenes/background_menu.gd" id="1_dkwwm"]
+[ext_resource type="Texture2D" uid="uid://byr2ir48xd0fl" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_x4u5o"]
+[ext_resource type="Texture2D" uid="uid://bdd126svhvphn" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0009_2.png" id="2_tny33"]
+[ext_resource type="Texture2D" uid="uid://ctdx1oy7xoets" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="3_neq7q"]
+[ext_resource type="Texture2D" uid="uid://r5fikcd3grnw" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0001_8.png" id="4_84brw"]
+[ext_resource type="Texture2D" uid="uid://dgj5cu0yebusa" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0002_7.png" id="5_kko0y"]
+[ext_resource type="Texture2D" uid="uid://bhygod5cns7du" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0008_3.png" id="6_8qmth"]
+[ext_resource type="Texture2D" uid="uid://cyyq6psb3yd2u" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0003_6.png" id="7_aohfr"]
+
+[node name="BIG" type="ParallaxBackground"]
+script = ExtResource("1_dkwwm")
+
+[node name="Облака" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(720, 0)
+
+[node name="Layer00110" type="Sprite2D" parent="Облака"]
+position = Vector2(363, 208)
+scale = Vector2(0.778017, 0.529634)
+texture = ExtResource("1_x4u5o")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.2)
+
+[node name="Layer00092" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(360.5, 210.5)
+scale = Vector2(0.77694, 0.525851)
+texture = ExtResource("2_tny33")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(733, 0)
+
+[node name="Деревья дальние" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(361.25, -17.25)
+scale = Vector2(0.791487, 1.01576)
+texture = ExtResource("3_neq7q")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(700, 0)
+
+[node name="Layer00018" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(361, 206)
+scale = Vector2(0.773707, 0.532787)
+texture = ExtResource("4_84brw")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(715, 0)
+
+[node name="Layer00027" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(362, 137.5)
+scale = Vector2(0.773707, 0.702396)
+texture = ExtResource("5_kko0y")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(720, 0)
+
+[node name="Layer00083" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(360.5, 134.5)
+scale = Vector2(0.77694, 0.715006)
+texture = ExtResource("6_8qmth")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(680, 0)
+
+[node name="Layer00036" type="Sprite2D" parent="ParallaxLayer6"]
+position = Vector2(361, 130.5)
+scale = Vector2(0.771552, 0.727617)
+texture = ExtResource("7_aohfr")
