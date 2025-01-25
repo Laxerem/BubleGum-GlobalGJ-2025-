@@ -50,11 +50,13 @@ func death():
 	alive = false
 	velocity.x = 0
 	velocity.y = 0
-	anim.play("Death")
 	await anim.animation_finished
 	queue_free()
 
 func _on_death_body_entered(body: Node2D) -> void:
 	print(body.name)
 	if body.name == "Player":
-		body.health -= 20
+		body.take_damage(20)
+		speed = 0
+		await get_tree().create_timer(1.0).timeout # Задержка на 1 секунду
+		speed = 100
