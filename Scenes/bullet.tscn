@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://b81fy7ykn036x"]
+
+[ext_resource type="Texture2D" uid="uid://dqx4o215y5ddh" path="res://assets/Player/shoot.png" id="1_n8uyx"]
+
+[sub_resource type="GDScript" id="GDScript_uciek"]
+script/source = "extends Area2D
+
+var speed = 5
+@onready var anim = $AnimatedSprite2D
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _physics_process(delta: float) -> void:
+	position += transform.x * speed
+	anim.play(\"Shoot\")
+	await anim.animation_finished
+	
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == \"Birds\":
+		queue_free()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_famwp"]
+radius = 6.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scw42"]
+atlas = ExtResource("1_n8uyx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awevt"]
+atlas = ExtResource("1_n8uyx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujg88"]
+atlas = ExtResource("1_n8uyx")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j12f"]
+atlas = ExtResource("1_n8uyx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xi2t"]
+atlas = ExtResource("1_n8uyx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su8mp"]
+atlas = ExtResource("1_n8uyx")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7nmyi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scw42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awevt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujg88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xi2t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su8mp")
+}],
+"loop": true,
+"name": &"Shoot",
+"speed": 5.0
+}]
+
+[node name="Bullet" type="Area2D"]
+script = SubResource("GDScript_uciek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_famwp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7nmyi")
+animation = &"Shoot"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

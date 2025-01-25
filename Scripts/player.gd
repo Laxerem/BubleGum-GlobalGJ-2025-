@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 200 # Скорость персонажа
+@export var bullet : PackedScene
 
 @onready var anim = $AnimatedSprite2D
 var last_health = 100
@@ -8,9 +9,11 @@ var health = 100
 var alive = true
 var damage_animation = false
 
-func atack():
+func shoot():
 	damage_animation = true
 	anim.play("Atack")
+	var bul = bullet.instantiate()
+	get_tree().root.add_child(bul)
 	await anim.animation_finished
 	damage_animation = false
 
@@ -29,7 +32,7 @@ func _physics_process(delta):
 		if Input.is_action_pressed("move_down"):
 			velocity.y += SPEED
 		if Input.is_action_pressed("Left_click") and damage_animation == false:
-			atack()
+			shoot()
 		if velocity != Vector2.ZERO:
 			velocity = velocity.normalized() * SPEED
 			if damage_animation == false:
