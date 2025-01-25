@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://1x2sitexdg2h"]
+[gd_scene load_steps=26 format=3 uid="uid://1x2sitexdg2h"]
 
 [ext_resource type="Texture2D" uid="uid://ct06la721b6ub" path="res://assets/Player/birds.png" id="1_t1fxu"]
 [ext_resource type="Script" path="res://Scripts/birds.gd" id="1_y1361"]
@@ -130,7 +130,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yawon")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
 "speed": 5.0
 }, {
@@ -162,6 +162,9 @@ animations = [{
 radius = 122.368
 height = 244.737
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stt0g"]
+size = Vector2(8.54218, 2.28001)
+
 [node name="Birds" type="CharacterBody2D"]
 scale = Vector2(2.28, 2.28)
 script = ExtResource("1_y1361")
@@ -172,11 +175,23 @@ shape = SubResource("CapsuleShape2D_ctrp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8xe0p")
-animation = &"Damage"
+animation = &"Death"
+autoplay = "Idle"
 
 [node name="Detector" type="Area2D" parent="."]
+scale = Vector2(0.877192, 0.877192)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
 shape = SubResource("CapsuleShape2D_e4l6o")
 
+[node name="Death" type="Area2D" parent="."]
+scale = Vector2(0.769466, 0.769466)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death"]
+position = Vector2(11.115, -5.13001)
+scale = Vector2(1.40128, 2)
+shape = SubResource("RectangleShape2D_stt0g")
+
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
+[connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]
+[connection signal="body_entered" from="Death" to="." method="_on_death_body_entered"]
