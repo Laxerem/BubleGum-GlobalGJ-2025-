@@ -43,6 +43,7 @@ func death() -> void:
 	alive = false
 	sounds.play_sound("Death")
 	await play_anim("Death", true)
+	Global.reset_states()
 	queue_free()  # Удаляем объект после смерти
 	MusicManager.stop_music()
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/menu/menu.tscn")

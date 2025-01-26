@@ -17,3 +17,6 @@ func get_state_of_scene():
 func set_state_of_scene(value: int):
 	var current_scene = get_tree().get_current_scene()
 	states_scenes[current_scene.name] = value
+
+func reset_states() -> void:
+	states_scenes.clear()

@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 		anim.flip_h = true
 	if Input.is_action_pressed("move_right"):
 		anim.flip_h = false
-		
 	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
