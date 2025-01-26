@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://i1357k2j40g5"]
+
+[ext_resource type="Texture2D" uid="uid://3lvecm4gadf3" path="res://assets/Map/Jungle Asset Pack/parallax background/plx-1.png" id="1_6nx8k"]
+[ext_resource type="Texture2D" uid="uid://bpgdbo17h8cja" path="res://assets/Map/Jungle Asset Pack/parallax background/plx-2.png" id="2_o0thx"]
+[ext_resource type="Texture2D" uid="uid://c2p7d37idnvoj" path="res://assets/Map/Jungle Asset Pack/parallax background/plx-3.png" id="3_hv0ol"]
+[ext_resource type="Texture2D" uid="uid://cxfrm3d0xgdu3" path="res://assets/Map/Jungle Asset Pack/parallax background/plx-4.png" id="4_qfgm7"]
+[ext_resource type="Texture2D" uid="uid://48n2ym6g5kos" path="res://assets/Map/Jungle Asset Pack/parallax background/plx-5.png" id="5_v3x1q"]
+
+[node name="paralax" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Plx-1" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(361.5, 211.5)
+scale = Vector2(1.90365, 1.98611)
+texture = ExtResource("1_6nx8k")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+
+[node name="Plx-2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(360.5, 211.5)
+scale = Vector2(1.90365, 2.00463)
+texture = ExtResource("2_o0thx")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+
+[node name="Plx-3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(360, 211.5)
+scale = Vector2(1.89583, 1.98611)
+texture = ExtResource("3_hv0ol")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+
+[node name="Plx-4" type="Sprite2D" parent="ParallaxLayer4"]
+position = Vector2(361, 210.5)
+scale = Vector2(1.90104, 1.99537)
+texture = ExtResource("4_qfgm7")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+
+[node name="Plx-5" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(362, 212.5)
+scale = Vector2(1.90625, 1.99537)
+texture = ExtResource("5_v3x1q")

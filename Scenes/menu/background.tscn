@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dkg2s5n36lian"]
 
-[ext_resource type="Script" path="res://Scenes/background_menu.gd" id="1_dkwwm"]
+[ext_resource type="Script" path="res://Scripts/background_menu.gd" id="1_dkwwm"]
 [ext_resource type="Texture2D" uid="uid://byr2ir48xd0fl" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0011_0.png" id="1_x4u5o"]
 [ext_resource type="Texture2D" uid="uid://bdd126svhvphn" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0009_2.png" id="2_tny33"]
 [ext_resource type="Texture2D" uid="uid://ctdx1oy7xoets" path="res://assets/Map/Free Pixel Art Forest/PNG/Background layers/Layer_0000_9.png" id="3_neq7q"]
@@ -17,8 +17,8 @@ motion_scale = Vector2(0.1, 0.1)
 motion_mirroring = Vector2(720, 0)
 
 [node name="Layer00110" type="Sprite2D" parent="Облака"]
-position = Vector2(363, 208)
-scale = Vector2(0.778017, 0.529634)
+position = Vector2(363, 208.5)
+scale = Vector2(0.778017, 0.530895)
 texture = ExtResource("1_x4u5o")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
@@ -42,8 +42,8 @@ texture = ExtResource("3_neq7q")
 motion_mirroring = Vector2(700, 0)
 
 [node name="Layer00018" type="Sprite2D" parent="ParallaxLayer2"]
-position = Vector2(361, 206)
-scale = Vector2(0.773707, 0.532787)
+position = Vector2(361, 207.375)
+scale = Vector2(0.773707, 0.536255)
 texture = ExtResource("4_84brw")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]

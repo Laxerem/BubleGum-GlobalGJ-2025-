@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct06la721b6ub"
-path="res://.godot/imported/birds.png-abd9854763b61031d2676a344afb22a1.ctex"
+uid="uid://cxfrm3d0xgdu3"
+path="res://.godot/imported/plx-4.png-5170988d3c049fa148c5218f011882e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Player/birds.png"
-dest_files=["res://.godot/imported/birds.png-abd9854763b61031d2676a344afb22a1.ctex"]
+source_file="res://assets/Map/Jungle Asset Pack/parallax background/plx-4.png"
+dest_files=["res://.godot/imported/plx-4.png-5170988d3c049fa148c5218f011882e6.ctex"]
 
 [params]
 

@@ -1,0 +1,129 @@
+[gd_scene load_steps=17 format=3 uid="uid://bhcoimja1khdr"]
+
+[ext_resource type="Script" path="res://hedgehog.gd" id="1_p86sj"]
+[ext_resource type="Texture2D" uid="uid://b7pdvk7i2uod7" path="res://assets/Mobs/Hedgehog Sprite Sheet.png" id="2_8pp4i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uuske"]
+size = Vector2(32, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jhpw"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk88t"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul0xr"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20mt4"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lem11"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdisv"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j2cv"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eops8"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3t5qx"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fuvq"]
+atlas = ExtResource("2_8pp4i")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctcmt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jhpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk88t")
+}],
+"loop": false,
+"name": &"Atack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul0xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20mt4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lem11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdisv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j2cv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eops8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3t5qx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fuvq")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x4luy"]
+radius = 197.003
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4231"]
+size = Vector2(35, 20)
+
+[node name="Hedgehog" type="CharacterBody2D"]
+script = ExtResource("1_p86sj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -5)
+shape = SubResource("RectangleShape2D_uuske")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -25)
+scale = Vector2(1.84375, 1.84375)
+sprite_frames = SubResource("SpriteFrames_ctcmt")
+animation = &"Atack"
+
+[node name="Danger_zone" type="Area2D" parent="."]
+
+[node name="Danger" type="CollisionShape2D" parent="Danger_zone"]
+shape = SubResource("CircleShape2D_x4luy")
+
+[node name="Damage_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage_zone"]
+position = Vector2(-0.5, -5)
+shape = SubResource("RectangleShape2D_j4231")
+
+[connection signal="body_entered" from="Danger_zone" to="." method="_on_danger_zone_body_entered"]
+[connection signal="body_exited" from="Danger_zone" to="." method="_on_danger_zone_body_exited"]
+[connection signal="body_entered" from="Damage_zone" to="." method="_on_damage_zone_body_entered"]

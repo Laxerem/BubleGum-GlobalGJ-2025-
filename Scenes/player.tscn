@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bfqj50h4hrutr" path="res://assets/Player/Buble.png" id="1_6xr0q"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_232fs"]
 [ext_resource type="Texture2D" uid="uid://cllf7w3q7oo1o" path="res://assets/Player/стрельба.png" id="2_h44qu"]
-[ext_resource type="PackedScene" uid="uid://b81fy7ykn036x" path="res://Scenes/bullet.tscn" id="2_uf8sv"]
+[ext_resource type="PackedScene" uid="uid://b81fy7ykn036x" path="res://Scenes/Air/bullet.tscn" id="2_uf8sv"]
 [ext_resource type="Texture2D" uid="uid://h73rtdkck57o" path="res://assets/Player/перс бег.png" id="3_53h3h"]
 [ext_resource type="Texture2D" uid="uid://b4pfaqgme2c3p" path="res://assets/Player/смерть перс.png" id="3_arhvh"]
 [ext_resource type="Texture2D" uid="uid://u03u7kf4edii" path="res://assets/Player/получ урона.png" id="3_etkpv"]
@@ -257,7 +257,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Atack",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -429,7 +429,7 @@ shape = SubResource("CapsuleShape2D_6bvtk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_boh36")
-animation = &"Damage"
+animation = &"Atack"
 autoplay = "Idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -443,5 +443,6 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2(17, 10)
 
 [node name="Marker2D" type="Marker2D" parent="Node2D"]

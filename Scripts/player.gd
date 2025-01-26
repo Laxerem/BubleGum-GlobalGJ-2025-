@@ -17,6 +17,7 @@ func _init() -> void:
 func shoot() -> void:
 	# Воспроизводим анимацию атаки
 	play_anim("Atack", true)
+	await get_tree().create_timer(0.35).timeout
 	# Создаем экземпляр пули
 	var bul = bullet.instantiate()
 	# Добавляем пулю в дерево сцены
@@ -39,7 +40,7 @@ func death() -> void:
 	alive = false
 	await play_anim("Death", true)
 	queue_free()  # Удаляем объект после смерти
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/menu.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/menu/menu.tscn")
 
 func play_anim(anim_name: String, lock: bool = false) -> void:
 	is_animation_locked = lock

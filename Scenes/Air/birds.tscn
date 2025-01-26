@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://1x2sitexdg2h"]
 
-[ext_resource type="Texture2D" uid="uid://ct06la721b6ub" path="res://assets/Player/birds.png" id="1_t1fxu"]
+[ext_resource type="Texture2D" uid="uid://ct06la721b6ub" path="res://assets/Mobs/birds.png" id="1_t1fxu"]
 [ext_resource type="Script" path="res://Scripts/birds.gd" id="1_y1361"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctrp3"]
@@ -100,7 +100,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Damage",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -175,7 +175,7 @@ shape = SubResource("CapsuleShape2D_ctrp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8xe0p")
-animation = &"Death"
+animation = &"Damage"
 autoplay = "Idle"
 
 [node name="Detector" type="Area2D" parent="."]
