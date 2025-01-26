@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cx22spw71ei4x"]
+[gd_scene load_steps=10 format=4 uid="uid://cx22spw71ei4x"]
 
 [ext_resource type="Texture2D" uid="uid://cbpwrfgogkxr1" path="res://assets/Map/stringstar fields/background_0.png" id="1_2n61h"]
 [ext_resource type="Texture2D" uid="uid://djsjm6dc3ie3x" path="res://assets/Map/stringstar fields/background_1.png" id="2_8q3pe"]
@@ -93,6 +93,9 @@ func _process(delta: float) -> void:
 		text = \"HP: \" + str($\"../../Gum/Player\".health)
 "
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bhyp5"]
+size = Vector2(254, 20)
+
 [node name="Локация 1" type="Node2D"]
 
 [node name="Локация 1" type="ParallaxBackground" parent="."]
@@ -125,7 +128,7 @@ tile_set = SubResource("TileSet_bglxx")
 [node name="Gum" type="Node2D" parent="."]
 
 [node name="Player" parent="Gum" instance=ExtResource("4_xijdl")]
-position = Vector2(120, 387)
+position = Vector2(129, 367)
 
 [node name="Mobs2" type="Node2D" parent="."]
 
@@ -147,3 +150,11 @@ offset_bottom = 58.0
 theme_override_font_sizes/font_size = 20
 text = "HP"
 script = SubResource("GDScript_3bwdm")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(130, 420)
+shape = SubResource("RectangleShape2D_bhyp5")
+
+[connection signal="body_entered" from="Area2D" to="Gum/Player" method="_on_area_2d_body_entered"]

@@ -9,6 +9,7 @@ const SPEED = 200  # Скорость персонажа
 var health: int
 var alive: bool = true
 var is_animation_locked: bool = false
+@onready var sounds = $Sounds
 
 func _init() -> void:
 	# Инициализация значений
@@ -16,6 +17,7 @@ func _init() -> void:
 
 func shoot() -> void:
 	# Воспроизводим анимацию атаки
+	sounds.play_sound("Shoot")
 	play_anim("Atack", true)
 	await get_tree().create_timer(0.35).timeout
 	# Создаем экземпляр пули
@@ -30,6 +32,7 @@ func shoot() -> void:
 	bul.shoot(direction)
 
 func take_damage(count: int) -> void:
+	sounds.play_sound("Damage")
 	health -= count
 	if health <= 0:
 		death()
@@ -38,8 +41,10 @@ func take_damage(count: int) -> void:
 
 func death() -> void:
 	alive = false
+	sounds.play_sound("Death")
 	await play_anim("Death", true)
 	queue_free()  # Удаляем объект после смерти
+	MusicManager.stop_music()
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/menu/menu.tscn")
 
 func play_anim(anim_name: String, lock: bool = false) -> void:
@@ -81,3 +86,9 @@ func _physics_process(delta: float) -> void:
 
 	# Перемещение
 	move_and_slide()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		Global.set_state_of_scene(3)
+		get_tree().change_scene_to_file("res://Scenes/Forest/loca_3.tscn")

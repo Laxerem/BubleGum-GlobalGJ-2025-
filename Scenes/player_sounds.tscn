@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://q3tp4bhuensn"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_8oe6w"]
+[ext_resource type="AudioStream" uid="uid://cauaky7vsnbyf" path="res://assets/music/bubble-shoot.mp3" id="2_1g6cw"]
+[ext_resource type="AudioStream" uid="uid://daqtwngll6a4b" path="res://assets/music/bubble-death.mp3" id="3_iigei"]
+[ext_resource type="AudioStream" uid="uid://h1y1eppmta48" path="res://assets/music/bird-damage.mp3" id="4_54r1j"]
+[ext_resource type="AudioStream" uid="uid://jwuus6nivy0c" path="res://assets/music/buble-damage.mp3" id="4_bmn5e"]
+[ext_resource type="AudioStream" uid="uid://by3khlfcxrx2g" path="res://assets/music/bubble-pop.mp3" id="5_wvw1a"]
+
+[node name="Sounds" type="Node2D"]
+script = ExtResource("1_8oe6w")
+
+[node name="Bird_damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_54r1j")
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_1g6cw")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iigei")
+
+[node name="Damage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_bmn5e")
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_wvw1a")

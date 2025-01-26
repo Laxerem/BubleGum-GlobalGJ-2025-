@@ -2,10 +2,10 @@ extends Player
 
 const JUMP_VELOCITY = -400.0
 
-
 func _init() -> void:
 	anim = $AnimatedSprite2D
 	health = 100
+	sounds = $Sounds
 	
 func _physics_process(delta: float) -> void:
 	if not alive:
@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		if not is_animation_locked:
 			play_anim("Jump", true)
+			sounds.play_sound("Jump")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

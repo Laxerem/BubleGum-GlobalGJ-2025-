@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://1x2sitexdg2h"]
+[gd_scene load_steps=27 format=3 uid="uid://1x2sitexdg2h"]
 
 [ext_resource type="Texture2D" uid="uid://ct06la721b6ub" path="res://assets/Mobs/birds.png" id="1_t1fxu"]
 [ext_resource type="Script" path="res://Scripts/birds.gd" id="1_y1361"]
+[ext_resource type="PackedScene" uid="uid://q3tp4bhuensn" path="res://Scenes/player_sounds.tscn" id="3_typxs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctrp3"]
 radius = 7.14286
@@ -191,6 +192,8 @@ scale = Vector2(0.769466, 0.769466)
 position = Vector2(-2.71798e-07, 0.285001)
 scale = Vector2(1.40128, 2)
 shape = SubResource("RectangleShape2D_stt0g")
+
+[node name="Sounds" parent="." instance=ExtResource("3_typxs")]
 
 [connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="Detector" to="." method="_on_detector_body_exited"]

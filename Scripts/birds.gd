@@ -7,9 +7,11 @@ var is_animation_locked = false
 @onready var head = $Death/CollisionShape2D
 @onready var player = $"../../Gum/Player"  # Ссылка на игрока (путь может отличаться)
 @onready var alive = true
+@onready var sounds = $Sounds
 var health = 100
 
 func take_damage(count: int):
+	sounds.play_sound("Bird_damage")
 	health -= count
 	if health <= 0:
 		death()
